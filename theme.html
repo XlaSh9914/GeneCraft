@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Theme Showcase</title>
+  <style>
+    :root {
+      --purple: #A973F5;
+      --purple-light: #DAB8FC;
+      --purple-extra-light: #EEDCFE;
+      --purple-disabled: #8140B7;
+
+      --blue: #6BD6C9;
+      --blue-light: #A9EFE8;
+      --blue-extra-light: #D0F9F6;
+      --blue-disabled: #479B92;
+
+      --green: #85EF87;
+      --green-light: #C7F7C8;
+      --green-extra-light: #E4FCE5;
+      --green-disabled: #5CB25E;
+
+      --yellow: #FFFA7B;
+      --yellow-light: #FFFDBC;
+      --yellow-extra-light: #FFFEDE;
+      --yellow-disabled: #B3B34F;
+
+      --red: #FA7DAD;
+      --red-light: #FCC2D9;
+      --red-extra-light: #FDE4EE;
+      --red-disabled: #AF4F76;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .color-group {
+      margin-bottom: 40px;
+      width: 600px;
+    }
+
+    .color-box {
+      display: inline-block;
+      width: 120px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .color-label {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Theme Showcase</h1>
+
+  <div class="color-group">
+    <h2>Purple</h2>
+    <div class="color-box" style="background-color: var(--purple);"></div>
+    <div class="color-box" style="background-color: var(--purple-light);"></div>
+    <div class="color-box" style="background-color: var(--purple-extra-light);"></div>
+    <div class="color-box" style="background-color: var(--purple-disabled);"></div>
+    <div class="color-label">Original</div>
+    <div class="color-label">Lighter</div>
+    <div class="color-label">Extra Light</div>
+    <div class="color-label">Disabled</div>
+  </div>
+
+  <div class="color-group">
+    <h2>Blue</h2>
+    <div class="color-box" style="background-color: var(--blue);"></div>
+    <div class="color-box" style="background-color: var(--blue-light);"></div>
+    <div class="color-box" style="background-color: var(--blue-extra-light);"></div>
+    <div class="color-box" style="background-color: var(--blue-disabled);"></div>
+    <div class="color-label">Original</div>
+    <div class="color-label">Lighter</div>
+    <div class="color-label">Extra Light</div>
+    <div class="color-label">Disabled</div>
+  </div>
+
+  <div class="color-group">
+    <h2>Green</h2>
+    <div class="color-box" style="background-color: var(--green);"></div>
+    <div class="color-box" style="background-color: var(--green-light);"></div>
+    <div class="color-box" style="background-color: var(--green-extra-light);"></div>
+    <div class="color-box" style="background-color: var(--green-disabled);"></div>
+    <div class="color-label">Original</div>
+    <div class="color-label">Lighter</div>
+    <div class="color-label">Extra Light</div>
+    <div class="color-label">Disabled</div>
+  </div>
+
+  <div class="color-group">
+    <h2>Yellow</h2>
+    <div class="color-box" style="background-color: var(--yellow);"></div>
+    <div class="color-box" style="background-color: var(--yellow-light);"></div>
+    <div class="color-box" style="background-color: var(--yellow-extra-light);"></div>
+    <div class="color-box" style="background-color: var(--yellow-disabled);"></div>
+    <div class="color-label">Original</div>
+    <div class="color-label">Lighter</div>
+    <div class="color-label">Extra Light</div>
+    <div class="color-label">Disabled</div>
+  </div>
+
+  <div class="color-group">
+    <h2>Red</h2>
+    <div class="color-box" style="background-color: var(--red);"></div>
+    <div class="color-box" style="background-color: var(--red-light);"></div>
+    <div class="color-box" style="background-color: var(--red-extra-light);"></div>
+    <div class="color-box" style="background-color: var(--red-disabled);"></div>
+    <div class="color-label">Original</div>
+    <div class="color-label">Lighter</div>
+    <div class="color-label">Extra Light</div>
+    <div class="color-label">Disabled</div>
+  </div>
+</body>
+</html>
