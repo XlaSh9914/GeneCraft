@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.logo a{
+  font-size: 50px;
+}
+
+.logo img {
+  height: 40px; /* Adjust size of logo */
+}

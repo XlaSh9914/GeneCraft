@@ -1,0 +1,47 @@
+<!-- loginPage.html -->
+<div id="signup-popup" class="signup-popup">
+  <div class="signup-content">
+    <span class="signup-close-btn" onclick="closeSignupPopup()">&times;</span>
+    <h1 class="concert-one-title">Sign Up</h1>
+    <form onsubmit="return validateSignupForm(event)">
+      <div class="combine-lable">
+        <div>
+          <label class="fredoka-regular">First Name</label>
+          <input class="btn" type="text" id="firstName" name="firstName" placeholder="Enter your first name" required="required"/>
+        </div>
+        <div>
+          <label class="fredoka-regular">Last Name</label>
+          <input class="btn" type="text" id="lastName" name="lastnaem" placeholder="Enter your last name" required="required"/>
+        </div>
+      </div>
+
+      <div class="combine-lable">
+        <div>
+          <label class="fredoka-regular">Age</label>
+          <input class="btn" type="number" id="age" name="age" placeholder="Enter your age" required="required"/>
+        </div>
+        <div>
+          <label class="fredoka-regular">Gender</label>
+          <select class="btn" id="gender" name="gender" required="required">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      
+      <label class="fredoka-regular">Username</label>
+      <input class="btn" type="text" id="signupUsername" name="signupUsername" placeholder="What should we call you??" required="required"/>
+
+      <label class="fredoka-regular">Email</label>
+      <input class="btn" type="email" id="email" name="email" placeholder="Enter your email" required="required"/>
+      
+      <label class="fredoka-regular">Password</label>
+      <input class="btn" type="password" id="signupPassword" name="signupPassword" placeholder="Enter your password" required="required"/>
+      
+
+      <button class="btn btn-highlight" type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
