@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="styles.css">
-  
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="./Assests/Navbar/navbar.css"/>
+    <link rel="stylesheet" href="./Assests/LoginPopup/loginPopup.css"/>
+    <link rel="stylesheet" href="./Assests/SighupPopup/signupPopup.css"/>
 
-  <nav class="navbar">
-    <div class="logo">
-      <!-- <img src="logo.png" alt="Logo"> -->
-      <a class= "logo concert-one-title" href="#">
-        GeneCraft
-      </a>
-    </div>
-    <div class="nav-links">
-      <a role="button" href="./theme.html" class="btn fredoka-regular">Theme</a>
-      <button class="btn fredoka-regular">Prepare</button>
-      <button class="btn btn-border fredoka-regular">Sign In</button>
-      <button class="btn highlight concert-one-title">Sign Up</button>
-    </div>
-  </nav>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Fredoka:wght@300..700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="login"></div>
+    <div id="signup"></div>
 
-  <div class="main-container">
-    <div class="content-container">
-      <span class="title concert-one-title">Title: Overview</span>
-      <span class="fredoka-regular">Subtitle: The Palm desktop software provided by Palm allows you to transfer data between your PalmPilot and your computer. You could synchronize your contacts, calendar ...</span>
-      <p class="content fredoka-regular">Content: Machine learning is a branch of artificial intelligence (AI) that allows machines to learn and improve from data without being explicitly programmed.</p>
+    <div class="main-container">
+      <div class="content-container">
+        <span class="title concert-one-title">Welcome</span>
+        <span class="fredoka-regular">to our WebApp!!</span>
+        <p class="content fredoka-regular">
+          Our project, GeneCraft Learning WebApp, is designed to simplify complex topics like DNA, gene expression, and genetic mutations using an interactive platform.
+        </p>
+        <div class="btn-container">
+          <a onclick="openLoginPopUp()" href="#" style="align-self: flex-start" class="btn btn-border fredoka-regular">Already in</a>
+          <a onclick="openSignupPopUp()" style="align-self: flex-start" class="btn btn-highlight concert-one-title">Lets get started!!</a>
+        </div>
+      </div>
+      <img src="https://i.pinimg.com/originals/4f/a6/1e/4fa61ea258dcbb6d0bf3576d1528fe7d.gif" alt="welcome gif"/>
     </div>
-    <img src="https://i.pinimg.com/originals/4f/a6/1e/4fa61ea258dcbb6d0bf3576d1528fe7d.gif" alt="">
-  </div>
-  
-  <div class="main-container">
-    <img style="width: 900px;" src="https://gifdb.com/images/thumbnail/cute-rolling-duolingo-meme-78p4e3vwil1ti255.gif" alt="">
-    <div class="content-container">
-      <span class="title concert-one-title">Title: Overview</span>
-      <span class="subtitle fredoka-regular">Subtitle: The Palm desktop software provided by Palm allows you to transfer data between your PalmPilot and your computer. You could synchronize your contacts, calendar ...</span>
-      <p class="content fredoka-regular">Content: Machine learning is a branch of artificial intelligence (AI) that allows machines to learn and improve from data without being explicitly programmed.</p>
-    </div>
-  </div>
-
-  <div class="main-container">
-    <div class="content-container">
-      <span class="title concert-one-title">Title: Overview</span>
-      <span class="fredoka-regular">Subtitle: The Palm desktop software provided by Palm allows you to transfer data between your PalmPilot and your computer. You could synchronize your contacts, calendar ...</span>
-      <p class="content fredoka-regular">Content: Machine learning is a branch of artificial intelligence (AI) that allows machines to learn and improve from data without being explicitly programmed.</p>
-    </div>
-    <img src="https://i.pinimg.com/originals/4f/a6/1e/4fa61ea258dcbb6d0bf3576d1528fe7d.gif" alt="">
-  </div>
-
-</body>
+    <script src="script.js"></script>
+    <script src="./Assests/Navbar/navbar.js" type="module"></script>
+    <script src="./Assests/LoginPopup/loginPopup.js" type="module"></script>
+    <script src="./Assests/SighupPopup/signupPopup.js" type="module"></script>
+  </body>
 </html>
