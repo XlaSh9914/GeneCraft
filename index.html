@@ -1,41 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Welcome</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="stylesheet" href="./Assests/Navbar/navbar.css"/>
-    <link rel="stylesheet" href="./Assests/LoginPopup/loginPopup.css"/>
-    <link rel="stylesheet" href="./Assests/SighupPopup/signupPopup.css"/>
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Fredoka:wght@300..700&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + HeroUI</title>
+    <meta key="title" content="Vite + HeroUI" property="og:title" />
+    <meta
+      content="Make beautiful websites regardless of your design experience."
+      property="og:description"
+    />
+    <meta
+      content="Make beautiful websites regardless of your design experience."
+      name="description"
+    />
+    <meta
+      key="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    <link href="/favicon.ico" rel="icon" />
   </head>
   <body>
-    <div id="navbar"></div>
-    <div id="login"></div>
-    <div id="signup"></div>
-
-    <div class="main-container">
-      <div class="content-container">
-        <span class="title concert-one-title">Welcome</span>
-        <span class="fredoka-regular">to our WebApp!!</span>
-        <p class="content fredoka-regular">
-          Our project, GeneCraft Learning WebApp, is designed to simplify complex topics like DNA, gene expression, and genetic mutations using an interactive platform.
-        </p>
-        <div class="btn-container">
-          <a onclick="openLoginPopUp()" href="#" style="align-self: flex-start" class="btn btn-border fredoka-regular">Already in</a>
-          <a onclick="openSignupPopUp()" style="align-self: flex-start" class="btn btn-highlight concert-one-title">Lets get started!!</a>
-        </div>
-      </div>
-      <img src="https://i.pinimg.com/originals/4f/a6/1e/4fa61ea258dcbb6d0bf3576d1528fe7d.gif" alt="welcome gif"/>
-    </div>
-    <script src="script.js"></script>
-    <script src="./Assests/Navbar/navbar.js" type="module"></script>
-    <script src="./Assests/LoginPopup/loginPopup.js" type="module"></script>
-    <script src="./Assests/SighupPopup/signupPopup.js" type="module"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
