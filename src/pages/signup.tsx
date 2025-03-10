@@ -47,7 +47,7 @@ export default function SignUpPage() {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json(); 
 
       if (response.ok) {
         setMessage(data.message);
