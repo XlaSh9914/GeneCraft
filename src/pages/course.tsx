@@ -1,4 +1,4 @@
-import { Card, CardBody } from "@heroui/react";
+import { Card, CardBody, Button } from "@heroui/react";
 import {
   JSXElementConstructor,
   Key,
@@ -255,6 +255,12 @@ export default function CoursePage() {
                 >
                   <span>🎓</span> NPTEL Course
                 </a>
+                <Button
+                  color="primary"
+                  onClick={() => setShowModel(!showModel)}
+                >
+                  {showModel ? "Show Video" : "Show 3D Model"}
+                </Button>
               </div>
             </CardBody>
           </Card>
