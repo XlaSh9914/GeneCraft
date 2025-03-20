@@ -23,8 +23,6 @@
     "@heroui/system": "2.4.6",
     "@heroui/theme": "2.4.5",
     "@react-aria/visually-hidden": "3.8.12",
-    "@react-three/drei": "^10.0.4",
-    "@react-three/fiber": "^9.1.0",
     "@react-types/shared": "3.26.0",
     "clsx": "2.1.1",
     "framer-motion": "11.15.0",
@@ -35,13 +33,11 @@
     "styled-components": "^6.1.15",
     "tailwind-variants": "0.1.20",
     "tailwindcss": "3.4.16",
-    "three": "^0.174.0"
   },
   "devDependencies": {
     "@types/node": "20.5.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@types/three": "^0.174.0",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
     "@vitejs/plugin-react": "^4.2.1",
