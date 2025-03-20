@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Pattern = () => {
   return (
@@ -7,7 +6,7 @@ const Pattern = () => {
       <div className="container" />
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   /*
@@ -63,13 +62,41 @@ const StyledWrapper = styled.div`
         #0f0 0%,
         transparent 100%
       ),
-      radial-gradient(ellipse 77px 60px at 50% 50%, #110d18 0%, transparent 100%),
-        radial-gradient(ellipse 78px 100px at 50% 50%, #110d18 0%, transparent 100%),
-        radial-gradient(ellipse 73px 96px at 50% 50%, #110d18 0%, transparent 100%),
-        radial-gradient(ellipse 76px 77px at 50% 50%, #2c213e 0%, transparent 100%),
-        radial-gradient(ellipse 66px 51px at 50% 50%, #110d18 0%, transparent 100%),
-        radial-gradient(ellipse 90px 57px at 50% 50%, #2c213e 0%, transparent 100%),
-        radial-gradient(ellipse 89px 93px at 50% 50%, #110d18 0%, transparent 100%);
+      radial-gradient(
+        ellipse 77px 60px at 50% 50%,
+        #110d18 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 78px 100px at 50% 50%,
+        #110d18 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 73px 96px at 50% 50%,
+        #110d18 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 76px 77px at 50% 50%,
+        #2c213e 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 66px 51px at 50% 50%,
+        #110d18 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 90px 57px at 50% 50%,
+        #2c213e 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 89px 93px at 50% 50%,
+        #110d18 0%,
+        transparent 100%
+      );
     background-size:
       726px 576px,
       1242px 454px,
@@ -105,6 +132,7 @@ const StyledWrapper = styled.div`
         9553px 21574px,
         946px 9057px;
     }
-  }`;
+  }
+`;
 
 export default Pattern;

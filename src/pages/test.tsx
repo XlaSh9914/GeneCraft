@@ -19,9 +19,7 @@ export default function EvaluationTestPage() {
     }[]
   >([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
-  const [showResults, setShowResults] = useState(false);
   const [eligibleLevel, setEligibleLevel] = useState(0);
-  const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
 
   // Original questions data from JSON
