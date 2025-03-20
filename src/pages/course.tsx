@@ -1,6 +1,7 @@
-import DefaultLayout from "@/layouts/default";
 import { Button, Link, Card, CardBody } from "@heroui/react"; // Assuming the package is named @heroui/react
 import { useState } from "react";
+
+import DefaultLayout from "../layouts/default";
 
 export default function CoursePage() {
   const [showModel, setShowModel] = useState(false);
@@ -14,15 +15,11 @@ export default function CoursePage() {
           {showModel ? (
             <div className="sketchfab-embed-wrapper">
               <iframe
-                title="DNA Model Level 1"
-                frameBorder="0"
                 allow="autoplay; fullscreen; xr-spatial-tracking"
-                xr-spatial-tracking
-                execution-while-out-of-viewport
-                execution-while-not-rendered
-                web-share
                 className="w-[100%] aspect-video"
-                src="https://sketchfab.com/models/30d194521f504e5f9db3895f59501381/embed"
+                frameBorder="0"
+                src="https://sketchfab.com/3d-models/chromosome-structure-cc33bb1ebe6141b08d0d06f1bbebc2b7/embed"
+                title="DNA Model Level 1"
               />
               <p
                 style={{
@@ -33,10 +30,10 @@ export default function CoursePage() {
                 }}
               >
                 <a
-                  href="https://sketchfab.com/3d-models/dna-model-level-1-30d194521f504e5f9db3895f59501381"
-                  target="_blank"
-                  rel="nofollow"
+                  href="https://sketchfab.com/3d-models/chromosome-structure-cc33bb1ebe6141b08d0d06f1bbebc2b7/embed"
+                  rel="nofollow noreferrer"
                   style={{ fontWeight: "bold", color: "#1CAAD9" }}
+                  target="_blank"
                 >
                   DNA Model Level 1
                 </a>
@@ -45,10 +42,10 @@ export default function CoursePage() {
           ) : (
             <div className="bg-black rounded-lg overflow-hidden">
               <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 className="w-[100%] aspect-video"
                 src="https://www.youtube.com/embed/W-Ov2cUaYQY?si=kUu63mB6dXsrhMqT"
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               />
             </div>
           )}
@@ -60,13 +57,13 @@ export default function CoursePage() {
               <p className="text-default-700">
                 This course dives deep into the world of bioinformatics,
                 covering topics such as sequence analysis, molecular modeling,
-                and data visualization. Whether you're a beginner or an
+                and data visualization. Whether you&apos;re a beginner or an
                 experienced scientist, this course will equip you with the
                 skills needed to excel in the field.
               </p>
               <div className="mt-4">
                 <h3 className="text-xl font-semibold mb-2">
-                  What You'll Learn
+                  What You&apos;ll Learn
                 </h3>
                 <ul className="list-disc list-inside text-gray-700">
                   <li>Introduction to Bioinformatics</li>
@@ -88,16 +85,16 @@ export default function CoursePage() {
             <CardBody>
               <h2 className="text-xl font-bold mb-4">Current Lectures</h2>
               <div className="space-y-3">
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Lecture 1: Introduction to Bioinformatics
                 </Link>
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Lecture 2: DNA
                 </Link>
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Lecture 3: RNA
                 </Link>
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Lecture 4: Central Dogma
                 </Link>
               </div>
@@ -109,16 +106,16 @@ export default function CoursePage() {
               <h2 className="text-xl font-bold mb-4">Resources</h2>
               <div className="space-y-3">
                 <Link
-                  href="..\assets\lecture1.pdf"
-                  download="Lecture1.pdf"
                   className="block text-blue-600 hover:underline"
+                  download="Lecture1.pdf"
+                  href="..\assets\lecture1.pdf"
                 >
                   Download Lecture Slides
                 </Link>
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Additional Reading Materials
                 </Link>
-                <Link href="#" className="block text-blue-600 hover:underline">
+                <Link className="block text-blue-600 hover:underline" href="#">
                   Practice Exercises
                 </Link>
                 <Button

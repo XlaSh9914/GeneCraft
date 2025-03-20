@@ -1,4 +1,4 @@
-import DefaultLayout from "@/layouts/default";
+import DefaultLayout from "../layouts/default";
 import { Button, Progress, RadioGroup, Radio } from "@heroui/react"; // Assuming the package is named @heroui/react
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
