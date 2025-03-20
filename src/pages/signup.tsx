@@ -125,7 +125,7 @@ export default function SignUpPage() {
             </div>
             <Button
               fullWidth
-              color="default"
+              color="primary"
               disabled={loading}
               size="lg"
               type="submit"
