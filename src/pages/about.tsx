@@ -1,5 +1,6 @@
-import { title } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
+import DefaultLayout from "../layouts/default";
+
+import { title } from "../components/primitives";
 
 export default function DocsPage() {
   return (
@@ -11,27 +12,28 @@ export default function DocsPage() {
           <div className="sketchfab-embed-wrapper">
             {" "}
             <iframe
-              title="DNA Model Level 1"
-              frameBorder="0"
               allow="autoplay; fullscreen; xr-spatial-tracking"
-              xr-spatial-tracking
-              execution-while-out-of-viewport
-              execution-while-not-rendered
-              web-share
-              className="w-[80vw] aspect-video" 
+              className="w-[80vw] aspect-video"
+              frameBorder="0"
               src="https://sketchfab.com/models/30d194521f504e5f9db3895f59501381/embed"
+              title="DNA Model Level 1"
             >
               {" "}
             </iframe>{" "}
-
-            <p style={{fontSize: "13px", fontWeight: "normal", margin: "5px", color: "#4A4A4A"}}>
+            <p
+              style={{
+                fontSize: "13px",
+                fontWeight: "normal",
+                margin: "5px",
+                color: "#4A4A4A",
+              }}
+            >
               {" "}
               <a
                 href="https://sketchfab.com/3d-models/dna-model-level-1-30d194521f504e5f9db3895f59501381?utm_medium=embed&utm_campaign=share-popup&utm_content=30d194521f504e5f9db3895f59501381"
+                rel="nofollow noreferrer"
+                style={{ fontWeight: "bold", color: "#1CAAD9" }}
                 target="_blank"
-                rel="nofollow"
-
-                style={{fontWeight: "bold", color: "#1CAAD9"}}
               >
                 {" "}
                 DNA Model Level 1{" "}
@@ -39,10 +41,9 @@ export default function DocsPage() {
               by{" "}
               <a
                 href="https://sketchfab.com/fantaland?utm_medium=embed&utm_campaign=share-popup&utm_content=30d194521f504e5f9db3895f59501381"
+                rel="nofollow noreferrer"
+                style={{ fontWeight: "bold", color: "#1CAAD9" }}
                 target="_blank"
-                rel="nofollow"
-
-                style={{fontWeight: "bold", color: "#1CAAD9"}}
               >
                 {" "}
                 fantaland{" "}
@@ -50,10 +51,9 @@ export default function DocsPage() {
               on{" "}
               <a
                 href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=30d194521f504e5f9db3895f59501381"
+                rel="nofollow noreferrer"
+                style={{ fontWeight: "bold", color: "#1CAAD9" }}
                 target="_blank"
-                rel="nofollow"
-
-                style={{fontWeight: "bold", color: "#1CAAD9"}}
               >
                 Sketchfab
               </a>

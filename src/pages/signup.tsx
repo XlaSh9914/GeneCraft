@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { title, subtitle } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
 import { Input, Button, Link } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
+
+import { title, subtitle } from "../components/primitives";
+import DefaultLayout from "../layouts/default";
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ export default function SignUpPage() {
     // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       setMessage("Passwords do not match.");
+
       return;
     }
 
@@ -47,7 +49,7 @@ export default function SignUpPage() {
         }),
       });
 
-      const data = await response.json(); 
+      const data = await response.json();
 
       if (response.ok) {
         setMessage(data.message);
@@ -70,64 +72,74 @@ export default function SignUpPage() {
         <div className="max-w-md w-full space-y-6">
           <div className="text-center">
             <h1 className={title()}>Create Your Account</h1>
-            <h2 className={subtitle()}>Join GeneCraft and unlock the world of bioinformatics.</h2>
+            <h2 className={subtitle()}>
+              Join GeneCraft and unlock the world of bioinformatics.
+            </h2>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div className="w-full flex flex-row flex-wrap gap-4">
               <Input
                 fullWidth
-                type="text"
-                name="fullName"
+                required
                 label="Full Name"
+                name="fullName"
                 placeholder="Enter your full name"
                 size="lg"
-                required
+                type="text"
                 value={formData.fullName}
                 onChange={handleChange}
               />
               <Input
                 fullWidth
-                type="email"
-                name="email"
+                required
                 label="Email Address"
+                name="email"
                 placeholder="Enter your email"
                 size="lg"
-                required
+                type="email"
                 value={formData.email}
                 onChange={handleChange}
               />
               <Input
                 fullWidth
-                type="password"
-                name="password"
+                required
                 label="Password"
+                name="password"
                 placeholder="Enter your password"
                 size="lg"
-                required
+                type="password"
                 value={formData.password}
                 onChange={handleChange}
               />
               <Input
                 fullWidth
-                type="password"
-                name="confirmPassword"
+                required
                 label="Confirm Password"
+                name="confirmPassword"
                 placeholder="Confirm your password"
                 size="lg"
-                required
+                type="password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
               />
             </div>
-            <Button color="default" fullWidth size="lg" type="submit" disabled={loading}>
+            <Button
+              fullWidth
+              color="primary"
+              disabled={loading}
+              size="lg"
+              type="submit"
+            >
               {loading ? "Signing Up..." : "Sign Up"}
             </Button>
           </form>
-          {message && <p className="text-center text-sm text-red-500">{message}</p>}
+          {message && (
+            <p className="text-center text-sm text-red-500">{message}</p>
+          )}
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
-              <Link href="/signin" color="foreground">
+              <Link color="foreground" href="/signin">
                 Sign In
               </Link>
             </p>
