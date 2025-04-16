@@ -68,14 +68,6 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig.links.linkedIn} title="LinkedIn">
-            <LinkedInIcon className="text-default-500" />
-          </Link>
-          <Link isExternal href={siteConfig.links.github} title="GitHub">
-            <GithubIcon className="text-default-500" />
-          </Link>
-          <ThemeSwitch />
-
           {isLoggedIn ? (
             <Dropdown>
               <DropdownTrigger>

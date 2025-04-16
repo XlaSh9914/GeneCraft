@@ -1,26 +1,51 @@
-import { Card, CardBody, Button } from "@heroui/react";
-import {
+import React, {
   JSXElementConstructor,
   Key,
   ReactElement,
   ReactNode,
   ReactPortal,
+  useEffect,
   useState,
 } from "react";
+import { Listbox, ListboxItem } from "@heroui/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Divider,
+  Link,
+  Image,
+  Button,
+} from "@heroui/react";
+import { Accordion, AccordionItem } from "@heroui/react";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import BiotechIcon from "@mui/icons-material/Biotech";
+import QuizIcon from "@mui/icons-material/Quiz";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import SchoolIcon from "@mui/icons-material/School";
+import { ScrollShadow } from "@heroui/react";
 
 import DefaultLayout from "../layouts/default";
+
+export const ListboxWrapper = ({ children }: { children: ReactNode }) => (
+  <div className="w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
+    {children}
+  </div>
+);
 
 export default function CoursePage() {
   const [showModel, setShowModel] = useState(false);
   const [selectedLecture, setSelectedLecture] = useState<
     (typeof lectureData)[0] | null
   >(null);
-
   // JSON data for lectures
   const lectureData = [
     {
       LevelNumber: "1",
-      LectureName: "DNA structure and Function- part1",
+      LectureName: "DNA structure and Function Part-1",
       LectureDescription:
         "DNA Structure and Function. (DNA) is a molecule composed of two polynucleotide chains that coil around each other to form a double helix carrying genetic instructions for the development, functioning, growth, and reproduction of all known organisms and many viruses. DNA and ribonucleic acid (RNA) are nucleic acids. Alongside proteins, lipids, and complex carbohydrates (polysaccharides), nucleic acids are one of the four major types of macromolecules that are essential for all known forms of life.\n\nThe two DNA strands are known as polynucleotides as they are composed of simpler monomeric units called nucleotides. Each nucleotide is composed of one of four nitrogen-containing nucleobases (cytosine [C], guanine [G], adenine [A], or thymine [T]), a sugar called deoxyribose, and a phosphate group. The nucleotides are joined to one another in a chain by covalent bonds (known as the phospho-diester linkage) between the sugar of one nucleotide and the phosphate of the next, resulting in an alternating sugar-phosphate backbone.\n\nThe nitrogenous bases of the two separate polynucleotide strands are bound together, according to base pairing rules (A with T and C with G), with hydrogen bonds to make double-stranded DNA. The complementary nitrogenous bases are divided into two groups, pyrimidines and purines. In DNA, the pyrimidines are thymine and cytosine; the purines are adenine and guanine. Both strands of double-stranded DNA store the same biological information. This information is replicated as and when the two strands separate. A large part of DNA (more than 98% for humans) is non-coding, meaning that these sections do not serve as patterns for protein sequences.\n\nThe two strands of DNA run in opposite directions to each other and are thus antiparallel. Attached to each sugar is one of four types of nucleobases (informally, bases). It is the sequence of these four nucleobases along the backbone that encodes genetic information. RNA strands are created using DNA strands as a template in a process called transcription, where DNA bases are exchanged for their corresponding bases except in the case of thymine (T), for which RNA substitutes uracil (U). Under the genetic code, these RNA strands specify the sequence of amino acids within proteins in a process called translation.\n\nWithin eukaryotic cells, DNA is organized into long structures called chromosomes. Before typical cell division, these chromosomes are duplicated in the process of DNA replication, providing a complete set of chromosomes for each daughter cell. Eukaryotic organisms (animals, plants, fungi, and protists) store most of their DNA inside the cell nucleus as nuclear DNA, and some in the mitochondria as mitochondrial DNA or in chloroplasts as chloroplast DNA.",
       LectureLinks: {
@@ -33,6 +58,7 @@ export default function CoursePage() {
       LectureSlides:
         "https://drive.google.com/file/d/1sL9AW1mRxdPygx4Tfbs1CHB_d4AYLh_D/view?usp=sharing",
       Docs: "https://drive.google.com/file/d/1-kaJZ6Qg8AdyWzcY3kEAIbADi6LVD2w4/view?usp=sharing",
+      LectureSubtopics: ["Theory", "Video Lecture", "Practical", "Quiz"],
     },
     {
       LevelNumber: "1",
@@ -49,6 +75,7 @@ export default function CoursePage() {
       LectureSlides:
         "https://drive.google.com/file/d/1sL9AW1mRxdPygx4Tfbs1CHB_d4AYLh_D/view?usp=sharing",
       Docs: "https://drive.google.com/file/d/1_WAyT4zMNuDKSq-D5lg-yPx_ux_eiGVB/view?usp=sharing",
+      LectureSubtopics: ["Theory", "Practical", "Quiz"],
     },
     {
       LevelNumber: "1",
@@ -66,6 +93,7 @@ export default function CoursePage() {
       LectureSlides:
         "https://drive.google.com/file/d/1HNeIaQ9_92kDWZzS95zQY731yzghHnaM/view?usp=sharing",
       Docs: "https://drive.google.com/file/d/1VfWklfDAw4Myceg8XJvj-PXQSP69Uf10/view?usp=sharing",
+      LectureSubtopics: ["Theory", "Video Lecture", "Practical", "Quiz"],
     },
     {
       LevelNumber: "1",
@@ -83,8 +111,42 @@ export default function CoursePage() {
       LectureSlides:
         "https://drive.google.com/file/d/1C9RjHCXI2h1fD2by4mBkRnqdHuHVg7t0/view?usp=sharing",
       Docs: "https://drive.google.com/file/d/1CRCl4Kl_u6FZD47rOcdhWQbJBesq0eia/view?usp=sharing",
+      LectureSubtopics: ["Theory", "Video Lecture", "Practical", "Quiz"],
     },
   ];
+
+  const lectureLevels = [
+    {
+      name: "Novice",
+      icon: (
+        <AutoStoriesIcon
+          className="text-green-400"
+          style={{ fontSize: "24px" }}
+        />
+      ),
+    },
+    {
+      name: "Intermediate",
+      icon: (
+        <PsychologyIcon
+          className="text-blue-500"
+          style={{ fontSize: "24px" }}
+        />
+      ),
+    },
+    {
+      name: "Advanced",
+      icon: (
+        <SchoolIcon className="text-violet-500" style={{ fontSize: "24px" }} />
+      ),
+    },
+  ];
+  const subtopicIcons: Record<string, JSX.Element> = {
+    Theory: <LibraryBooksIcon className="text-xl text-default-500" />,
+    "Video Lecture": <OndemandVideoIcon className="text-xl text-default-500" />,
+    Practical: <BiotechIcon className="text-xl text-default-500" />,
+    Quiz: <QuizIcon className="text-xl text-default-500" />,
+  };
 
   // Format lecture description for display (replacing newlines with paragraph breaks)
   const formatDescription = (description: string) => {
@@ -101,12 +163,12 @@ export default function CoursePage() {
             | ReactPortal
             | null
             | undefined,
-          index: Key | null | undefined,
+          index: Key | null | undefined
         ) => (
           <p key={index} className="mb-4">
             {paragraph}
           </p>
-        ),
+        )
       );
   };
 
@@ -118,7 +180,14 @@ export default function CoursePage() {
 
   // Get current lecture data
   const currentLecture = selectedLecture || lectureData[0];
+  const [expandedLecture, setExpandedLecture] = useState<string | null>(null);
   const currentVideoUrl = currentLecture.LectureLinks.YoutubeLink;
+  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(
+    new Set<string>([])
+  );
+  const toggleLecture = (lectureName: string) => {
+    setExpandedLecture((prev) => (prev === lectureName ? null : lectureName));
+  };
 
   // Extract YouTube video ID from URL
   const getYoutubeEmbedUrl = (url: string) => {
@@ -131,39 +200,57 @@ export default function CoursePage() {
       : url;
   };
 
+  const handleOpen = () => {
+    console.log("Selected Lecture:", currentLecture);
+  };
+
+  useEffect(() => {
+    console.log("Selected Lecture:", selectedKeys);
+  });
+
   return (
     <DefaultLayout>
-      <section className="flex flex-col md:flex-row min-h-screen p-6 gap-6">
+      <section className="flex flex-col md:flex-row min-h-[89vh] p-6 gap-6">
         {/* Main Video and Description Section */}
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 ">
           {/* Video Section */}
           {showModel ? (
-            <div className="sketchfab-embed-wrapper">
-              <iframe
-                allow="autoplay; fullscreen; xr-spatial-tracking"
-                className="w-[100%] aspect-video"
-                frameBorder="0"
-                src="https://sketchfab.com/3d-models/chromosome-structure-cc33bb1ebe6141b08d0d06f1bbebc2b7/embed"
-                title="DNA Model Level 1"
-              />
-              <p
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "normal",
-                  margin: "5px",
-                  color: "#4A4A4A",
-                }}
-              >
-                <a
-                  href="https://sketchfab.com/3d-models/chromosome-structure-cc33bb1ebe6141b08d0d06f1bbebc2b7/embed"
-                  rel="nofollow noreferrer"
-                  style={{ fontWeight: "bold", color: "#1CAAD9" }}
-                  target="_blank"
+            // <div className="sketchfab-embed-wrapper rounded-lg overflow-hidden">
+            //   <iframe
+            //     allow="autoplay; fullscreen; xr-spatial-tracking"
+            //     className="w-[100%] aspect-video"
+            //     frameBorder="0"
+            //     src="https://sketchfab.com/3d-models/chromosome-structure-cc33bb1ebe6141b08d0d06f1bbebc2b7/embed"
+            //     title="DNA Model Level 1"
+            //   />
+            // </div>
+            <Card className="w-[100%] h-[100%]">
+              <CardHeader className="flex gap-3">
+                <LibraryBooksIcon style={{ fontSize: "32px" }} />
+                <div className="flex flex-col">
+                  <p className="text-md">Theory</p>
+                  <p className="text-small text-default-500">
+                    DNA structure and Function- part1
+                  </p>
+                </div>
+              </CardHeader>
+              <Divider />
+              <CardBody>
+                <p>
+                  Make beautiful websites regardless of your design experience.
+                </p>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+                <Link
+                  isExternal
+                  showAnchorIcon
+                  href="https://github.com/heroui-inc/heroui"
                 >
-                  DNA Model Level 1
-                </a>
-              </p>
-            </div>
+                  Visit source code on GitHub.
+                </Link>
+              </CardFooter>
+            </Card>
           ) : (
             <div className="bg-black rounded-lg overflow-hidden">
               <iframe
@@ -176,7 +263,7 @@ export default function CoursePage() {
           )}
 
           {/* Description Section */}
-          <Card>
+          {/* <Card>
             <CardBody>
               <h2 className="text-2xl font-bold mb-4">
                 {currentLecture.LectureName}
@@ -185,32 +272,61 @@ export default function CoursePage() {
                 {formatDescription(currentLecture.LectureDescription)}
               </div>
             </CardBody>
-          </Card>
+          </Card> */}
         </div>
 
-        {/* Current Lectures Sidebar */}
         <div className="w-full md:w-80 space-y-6">
-          <Card>
-            <CardBody>
-              <h2 className="text-xl font-bold mb-4">Current Lectures</h2>
-              <div className="space-y-3">
-                {lectureData.map((lecture, index) => (
-                  <button
-                    key={index}
-                    className={`block text-left w-full px-3 py-2 rounded ${
-                      currentLecture === lecture
-                        ? "bg-blue-100 text-blue-700 font-medium"
-                        : "text-blue-600 hover:bg-gray-100"
-                    }`}
-                    onClick={() => handleLectureSelect(lecture)}
-                  >
-                    {lecture.LectureName}
-                  </button>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-
+          <ScrollShadow
+            hideScrollBar
+            className="-mx-[1vw] px-[1vw] -my-[1vw] py-[1vw] max-h-[68vh]"
+          >
+            <Accordion selectionMode="multiple" variant="shadow">
+              {lectureLevels.map((level, index) => (
+                <AccordionItem
+                  key={index}
+                  aria-label={`Level ${level.name}`}
+                  startContent={level.icon} // Add the Material-UI icon here
+                  title={level.name}
+                  onClick={() => toggleLecture(level.name)}
+                >
+                  <Accordion selectionMode="multiple" variant="shadow">
+                    {lectureData.map((lecture, index) => (
+                      <AccordionItem
+                        key={index}
+                        aria-label={`Level ${lecture.LevelNumber}`}
+                        title={lecture.LectureName}
+                      >
+                        <Listbox
+                          disallowEmptySelection
+                          aria-label="Multiple selection example"
+                          selectedKeys={selectedKeys}
+                          selectionMode="multiple"
+                          variant="solid"
+                          onSelectionChange={(keys) =>
+                            setSelectedKeys(
+                              new Set(Array.from(keys) as string[])
+                            )
+                          }
+                        >
+                          {lecture.LectureSubtopics.map((subtopic, index) => (
+                            <ListboxItem
+                              key={index}
+                              startContent={
+                                subtopicIcons[subtopic] || <LibraryBooksIcon />
+                              }
+                              onPress={() => handleOpen()}
+                            >
+                              {subtopic}
+                            </ListboxItem>
+                          ))}
+                        </Listbox>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </ScrollShadow>
           <Card>
             <CardBody>
               <h2 className="text-xl font-bold mb-4">Resources</h2>

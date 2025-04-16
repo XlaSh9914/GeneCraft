@@ -16,13 +16,18 @@ export default function SignInPage() {
     setMessage("Logging in...");
 
     try {
-      const response = await fetch("http://localhost:5000/api/signIn", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://genecraft-backend.onrender.com/api/signIn?email=" +
+          email +
+          "&password=" +
+          password,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-        body: JSON.stringify({ email, password }),
-      });
+      );
 
       const data = await response.json();
 
@@ -35,6 +40,7 @@ export default function SignInPage() {
       }
     } catch (error) {
       setMessage("Error connecting to the server. Try again later.");
+      console.log(error);
     }
   };
 
