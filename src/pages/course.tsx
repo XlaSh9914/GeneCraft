@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardBody, Listbox, ListboxItem } from "@heroui/react";
 import { Accordion, AccordionItem } from "@heroui/react";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -150,18 +150,10 @@ export default function CoursePage() {
   const [currentResources, setCurrentResources] = useState<
     Resources | undefined
   >(undefined);
-  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(
-    new Set<string>([])
-  );
-  const [isLoaded, setIsLoaded] = React.useState(false);
   const [subtopicContent, setSubtopicContent] = useState<SubtopicContent>({
     theory: [],
     practical: [],
     quiz: [],
-  });
-  const [topicContent, setTopicContent] = useState<TopicContent>({
-    topicId: "",
-    subtopicContent: [],
   });
   const [levelContent, setLevelContent] = useState<LevelContent>({
     levelNo: 1,
@@ -203,8 +195,6 @@ export default function CoursePage() {
         topicId: topicId,
         subtopicContent: [data],
       };
-
-      setTopicContent(newTopicContent);
 
       // 3. Prepare new levelContent (assuming levelNo remains constant, e.g., 1)
       const newLevelContent: LevelContent = {
@@ -354,14 +344,9 @@ export default function CoursePage() {
                         }}
                       >
                         <Listbox
-                          aria-label="Multiple selection example"
-                          selectionMode="multiple"
+                          aria-label="Multiple selection "
+                          selectionMode="single"
                           variant="solid"
-                          onSelectionChange={(keys) => {
-                            setSelectedKeys(
-                              new Set(Array.from(keys) as string[])
-                            );
-                          }}
                         >
                           {Object.keys(subtopicIcons).map((subtopic, index) => (
                             <ListboxItem

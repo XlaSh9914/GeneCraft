@@ -5,8 +5,6 @@ import { Input, Button, Link } from "@heroui/react";
 import { title, subtitle } from "../components/primitives";
 import DefaultLayout from "../layouts/default";
 
-import { BASE_URL } from "../../utils/api";
-
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

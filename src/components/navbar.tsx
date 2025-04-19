@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 
 import { siteConfig } from "../config/site";
 import { ThemeSwitch } from "../components/theme-switch";
-import { GithubIcon, LinkedInIcon, UserIcon } from "../components/icons";
+import { GithubIcon, UserIcon } from "../components/icons";
 import { Logo } from "../components/icons";
 
 export const Navbar = () => {

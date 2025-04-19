@@ -62,15 +62,6 @@ export default function SubtopicCard({
 }: SubtopicCardProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
   const adjustedPage = Math.max(0, currentPage - 1);
-  const [isLoaded, setIsLoaded] = React.useState(false);
-
-  useEffect(() => {
-    // Reset the current page to 1 whenever the content changes
-    setCurrentPage(1);
-    setIsLoaded(false);
-    console.log("Conten len:", content?.length);
-    console.log("Current page reset to 1");
-  }, [content]);
 
   useEffect(() => {
     // Reset the current page to 1 if the adjustedPage is out of bounds
