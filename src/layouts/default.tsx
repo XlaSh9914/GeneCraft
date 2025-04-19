@@ -9,7 +9,7 @@ export default function DefaultLayout({
     <div className="w-full min-h-screen flex flex-col relative">
       <Navbar />
       <main className="flex-grow relative z-10">{children}</main>
-      <footer className="w-full flex items-center justify-center py-3">
+      <footer className="w-full flex items-center justify-center py-2">
         <span className="text-default-600">
           Bioinformatics Project Genecraft
         </span>
