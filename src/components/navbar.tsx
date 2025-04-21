@@ -16,7 +16,6 @@ import {
 import { useEffect, useState } from "react";
 
 import { siteConfig } from "../config/site";
-import { ThemeSwitch } from "../components/theme-switch";
 import { GithubIcon, UserIcon } from "../components/icons";
 import { Logo } from "../components/icons";
 
@@ -121,7 +120,6 @@ export const Navbar = () => {
         <Link isExternal href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link>
-        <ThemeSwitch />
 
         {isLoggedIn ? (
           <Dropdown>

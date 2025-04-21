@@ -12,6 +12,9 @@ import {
   Listbox,
   ListboxItem,
   Textarea,
+  Button,
+  addToast,
+  ToastProvider,
 } from "@heroui/react";
 import PendingIcon from "@mui/icons-material/Pending";
 
@@ -33,7 +36,7 @@ type Practical = {
   vidLink: string;
   question: string;
   options: string[];
-  answer: number[];
+  answer: string[];
 };
 
 type Quiz = {
@@ -43,7 +46,7 @@ type Quiz = {
   marks: number;
   question: string;
   options: string[];
-  correctAnswer: string[];
+  answer: string[];
 };
 
 type SubtopicCardProps = {
@@ -62,6 +65,9 @@ export default function SubtopicCard({
 }: SubtopicCardProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
   const adjustedPage = Math.max(0, currentPage - 1);
+  const [selectedOption, setSelectedOption] = React.useState<string[] | null>(
+    null
+  );
 
   useEffect(() => {
     // Reset the current page to 1 if the adjustedPage is out of bounds
@@ -72,6 +78,7 @@ export default function SubtopicCard({
 
   return (
     <div className="flex-1 min-h-[100px]">
+      <ToastProvider placement={"bottom-right"} />
       <Card className="w-[100%] h-[100%]">
         <CardHeader className="flex gap-3">
           {subtopicIcon ? (
@@ -114,11 +121,19 @@ export default function SubtopicCard({
                 }}
               >
                 {content &&
-                content.length > 0 &&
-                content[adjustedPage] !== undefined &&
-                "header" in content[adjustedPage]
-                  ? (content[adjustedPage].header ?? "Quiz 🎉")
-                  : "..."}
+                  content.length > 0 &&
+                  content[adjustedPage] !== undefined &&
+                  (() => {
+                    const current = content[adjustedPage];
+
+                    if ("header" in current) {
+                      return current.header ?? "Quiz 🎉";
+                    } else if ("questionNo" in current) {
+                      return `Question ${current.questionNo}`;
+                    }  else {
+                      return "...";
+                    }
+                  })()}
               </h1>
               {content &&
               content.length > 0 &&
@@ -151,7 +166,7 @@ export default function SubtopicCard({
                     ))}
                   </ul>
                 ) : "options" in content[adjustedPage] ? (
-                  <div className="w-full border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
+                  <div className="w-[70%] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
                     {(content[adjustedPage] as Practical | Quiz).options
                       ?.length > 0 ? (
                       <Listbox
@@ -175,6 +190,7 @@ export default function SubtopicCard({
                             }
                             onPress={() => {
                               console.log("Option clicked:", option);
+                              setSelectedOption([index.toString()]);
                             }}
                           >
                             {option}
@@ -190,7 +206,7 @@ export default function SubtopicCard({
                             disableAnimation
                             disableAutosize
                             classNames={{
-                              base: "max-w-xs mb-4",
+                              base: "max-w-[40%] mb-4",
                               input: "resize-y min-h-[40px]",
                             }}
                             label={`Answer ${index + 1}`}
@@ -207,6 +223,44 @@ export default function SubtopicCard({
               ) : (
                 <p>No content available.</p>
               )}
+              <br />
+              {content &&
+              content[adjustedPage] !== undefined &&
+              content.length > 0 ? (
+                "options" in content[adjustedPage] ? (
+                  <Button
+                    color="primary"
+                    isDisabled={!selectedOption}
+                    variant="solid"
+                    onPress={() => {
+                      console.log("Selected option:", selectedOption);
+                      if (
+                        selectedOption?.[0] ===
+                        (
+                          content[adjustedPage] as Practical | Quiz
+                        ).answer[0]?.toString()
+                      ) {
+                        console.log("Correct answer!");
+                        addToast({
+                          title: "Correct answer!",
+                          radius: "md",
+                          color: "success",
+                        });
+                        setCurrentPage(currentPage + 1);
+                      } else {
+                        console.log("Incorrect answer.");
+                        addToast({
+                          title: "Incorrect answer!",
+                          radius: "md",
+                          color: "danger",
+                        });
+                      }
+                    }}
+                  >
+                    Submit
+                  </Button>
+                ) : null
+              ) : null}
             </div>
             {/* Image Section */}
             {content &&

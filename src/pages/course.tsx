@@ -57,7 +57,7 @@ type Practical = {
   vidLink: string;
   question: string;
   options: string[];
-  answer: number[];
+  answer: string[];
 };
 
 type Quiz = {
@@ -67,7 +67,7 @@ type Quiz = {
   marks: number;
   question: string;
   options: string[];
-  correctAnswer: string[];
+  answer: string[];
 };
 
 type SubtopicContent = {
