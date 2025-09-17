@@ -1,9 +1,5 @@
-# Vite & HeroUI Template
-
-This is a template for creating applications using Vite and HeroUI (v2).
-
-[Try it on CodeSandbox](https://githubbox.com/frontio-ai/vite-template)
-
+# Genecraft
+Site: https://genecraft-edu.web.app/home
 ## Technologies Used
 
 - [Vite](https://vitejs.dev/guide/)
